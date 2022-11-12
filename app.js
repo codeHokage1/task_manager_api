@@ -18,9 +18,9 @@ app.use(express.json());
 
 
 // routes
-// app.get('/', (req, res) => {
-//     res.send("Welcoe to the Task Manager API")
-// })
+app.get('/', (req, res) => {
+    res.send("Welcoe to the Task Manager API")
+})
 app.use('/api/tasks', tasksRoutes);
 app.use((req, res) => {
     res.send("Sorry! This Route doesn't exist")
