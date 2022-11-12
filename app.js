@@ -19,7 +19,7 @@ app.use(express.json());
 
 // routes
 app.get('/', (req, res) => {
-    res.send("Welcoe to the Task Manager API")
+    res.send("Welcome to the Task Manager API")
 })
 app.use('/api/tasks', tasksRoutes);
 app.use((req, res) => {
