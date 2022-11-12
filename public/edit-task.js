@@ -6,18 +6,18 @@ const editBtnDOM = document.querySelector('.task-edit-btn')
 const formAlertDOM = document.querySelector('.form-alert')
 const params = window.location.search
 const id = new URLSearchParams(params).get('id')
+
 let tempName
 
 const showTask = async () => {
   try {
-    const {
-      data: { task },
-    } = await axios.get(`/api/tasks/${id}`)
-    const { _id: taskID, isCompleted, title } = task
+    const task = await axios.get(`/api/tasks/${id}`)
+    console.log(task.data)
+    const { _id: taskID, isCompleted, title } = task.data
 
-    taskIDDOM.textContent = taskID
-    taskNameDOM.value = title
-    tempName = title
+    taskIDDOM.textContent = task.data._id
+    taskNameDOM.value = task.data.title
+    tempName = task.data.title
     if (isCompleted) {
       taskCompletedDOM.checked = true
     }

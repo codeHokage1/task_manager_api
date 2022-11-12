@@ -13,4 +13,4 @@ Available Routes include:
 - PUT => /api/tasks/:id (to update a single task)
 - DELETE => /api/tasks/:id (to delete a single task)
 
-The project was integrated with a simple frontend project. Check it out here :link: : 
+The project can be integrated with any frontend project. 
