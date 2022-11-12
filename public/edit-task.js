@@ -12,13 +12,13 @@ const showTask = async () => {
   try {
     const {
       data: { task },
-    } = await axios.get(`/api/v1/tasks/${id}`)
-    const { _id: taskID, completed, name } = task
+    } = await axios.get(`/api/tasks/${id}`)
+    const { _id: taskID, isCompleted, title } = task
 
     taskIDDOM.textContent = taskID
-    taskNameDOM.value = name
-    tempName = name
-    if (completed) {
+    taskNameDOM.value = title
+    tempName = title
+    if (isCompleted) {
       taskCompletedDOM.checked = true
     }
   } catch (error) {
@@ -37,17 +37,17 @@ editFormDOM.addEventListener('submit', async (e) => {
 
     const {
       data: { task },
-    } = await axios.patch(`/api/v1/tasks/${id}`, {
-      name: taskName,
-      completed: taskCompleted,
+    } = await axios.patch(`/api/tasks/${id}`, {
+      title: taskName,
+      isCompleted: taskCompleted,
     })
 
-    const { _id: taskID, completed, name } = task
+    const { _id: taskID, isCompleted, title } = task
 
     taskIDDOM.textContent = taskID
-    taskNameDOM.value = name
-    tempName = name
-    if (completed) {
+    taskNameDOM.value = tile
+    tempName = title
+    if (isCompleted) {
       taskCompletedDOM.checked = true
     }
     formAlertDOM.style.display = 'block'
